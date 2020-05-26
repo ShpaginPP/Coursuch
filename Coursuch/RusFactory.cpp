@@ -7,17 +7,17 @@ void RusFactory::createTank()
 	{
 		tmp[i] = Data[i];
 	}
-	tmp[size + 1] = new RusTank; 
-	tmp[size + 1]->setName();
-	tmp[size + 1]->setRange();
-	tmp[size + 1]->setPower();
-	tmp[size + 1]->setWeapon();
-	tmp[size + 1]->setCaliber();
-	tmp[size + 1]->setArea();
-	tmp[size + 1]->setYear();
-	tmp[size + 1]->setAmount();
-	tmp[size + 1]->setWeight();
-	tmp[size + 1]->setCrew();
+	tmp[size] = new RusTank; 
+	tmp[size]->setName();
+	tmp[size]->setRange();
+	tmp[size]->setPower();
+	tmp[size]->setWeapon();
+	tmp[size]->setCaliber();
+	tmp[size]->setArea();
+	tmp[size]->setYear();
+	tmp[size]->setAmount();
+	tmp[size]->setWeight();
+	tmp[size]->setCrew();
 	size++;
 	if (Data)
 		delete[] Data;
@@ -151,6 +151,9 @@ void RusFactory::deleteTank()
 {
 	int index;
 	int choice;
+	Tank** tmp;
+	int j = 0;
+
 	if (!size)
 	{
 		cout << "There are no combat units in the hangar. Download information from a file or create a tank." << endl;
@@ -191,8 +194,8 @@ void RusFactory::deleteTank()
 				system("pause");
 				return;
 			}
-			Tank** tmp = new Tank * [size - 1];
-			int j = 0;
+			tmp = new Tank * [size - 1];
+			j = 0;
 			for (int i = 0; i < size; i++)
 			{
 				if (index == i)
@@ -215,6 +218,29 @@ void RusFactory::deleteTank()
 	{
 		cout << "ERROR:" + error << endl;
 	}
+}
+
+void RusFactory::loadTank()
+{
+	ifstream fin("rustank.txt");
+	while (!fin.eof())
+	{
+		if (fin.peek() == -1)
+			break;
+		Tank **tmp = new Tank * [size + 1];
+		for (int i = 0; i < size; i++)
+		{
+			tmp[i] = Data[i];
+		}
+		tmp[size] = new RusTank;
+		tmp[size]->load(fin);
+		size++;
+		delete[] Data;
+		Data = tmp;
+	}
+	fin.close();
+	cout << "Units load on file rustank.txt" << endl;
+	system("pause");
 }
 
 void RusFactory::saveTank()

@@ -18,6 +18,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="RusFactory.cpp" />
+    <ClCompile Include="RusTank.cpp" />
+    <ClCompile Include="Tank.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Factory.h" />
+    <ClInclude Include="RusFactory.h" />
+    <ClInclude Include="RusTank.h" />
+    <ClInclude Include="Tank.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="rustank.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{74492E8E-3B2A-4CC2-9C14-E3FDAA03121A}</ProjectGuid>
@@ -137,19 +153,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Factory.h" />
-    <ClInclude Include="RusFactory.h" />
-    <ClInclude Include="RusTank.h" />
-    <ClInclude Include="Tank.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Factory.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="RusFactory.cpp" />
-    <ClCompile Include="RusTank.cpp" />
-    <ClCompile Include="Tank.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

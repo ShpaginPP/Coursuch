@@ -284,8 +284,54 @@ void RusTank::save(ofstream& fout)
 		<< "Weight: " << this->weight << endl
 		<< "Number of people in the crew: " << this->crew << endl
 		<< "====================================" << endl;
-	fout.close();
 	cout << "All data saved" << endl;
+}
+
+void RusTank::load(ifstream& fin)
+{
+	string tmp;
+	string line;
+	tmp = "Tank's name: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	name = line;
+	tmp = "Range: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	range = line;
+	tmp = "Firepower: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	power = line;
+	tmp = "Weponry: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	weapon = line;
+	tmp = "Caliber: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	caliber = line;
+	tmp = "Area of movement: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	area = line;
+	tmp = "Date of assembly: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	year = line;
+	tmp = "Amount of Tanks in hangar: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	amount = line;
+	tmp = "Weight: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	weight = line;
+	tmp = "Number of people in the crew: ";
+	getline(fin, line);
+	line.replace(line.find(tmp), tmp.length(), "");
+	crew = line;
+	getline(fin, line);
 }
 
 string RusTank::getName()

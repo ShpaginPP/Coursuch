@@ -20,6 +20,7 @@ public:
 	virtual string setCrew() = 0;
 	virtual void print() = 0;
 	virtual void save(ofstream& fout) = 0;
+	virtual void load(ifstream& fin) = 0;
 	virtual string getName() = 0;
 	virtual string getRange() = 0;
 	virtual string getPower() = 0;

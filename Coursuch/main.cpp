@@ -6,6 +6,7 @@ using namespace std;
 int main()
 {
 	RusFactory Data;
-	Data.createTank();
+	Data.loadTank();
+	Data.printTank();
 	return 0;
 }
