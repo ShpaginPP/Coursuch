@@ -15,6 +15,18 @@ class Factory
 		virtual void deleteBTR() = 0;
 		virtual void loadBTR() = 0;
 		virtual void saveBTR() = 0;
+		virtual void createRobo() = 0;
+		virtual void printRobo() = 0;
+		virtual void editRobo() = 0;
+		virtual void deleteRobo() = 0;
+		virtual void loadRobo() = 0;
+		virtual void saveRobo() = 0;
+		virtual void createHowitzer() = 0;
+		virtual void printHowitzer() = 0;
+		virtual void editHowitzer() = 0;
+		virtual void deleteHowitzer() = 0;
+		virtual void loadHowitzer() = 0;
+		virtual void saveHowitzer() = 0;
 		virtual ~Factory() {};
 };
 

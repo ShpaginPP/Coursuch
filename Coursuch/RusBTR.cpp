@@ -6,10 +6,10 @@ string RusBTR::setName()
 	{
 		try
 		{
-			cout << "Enter a tank's name:" << endl;
+			cout << "Enter a BTR's name:" << endl;
 			string tmp;
 			cin >> tmp;
-			if (tmp == "");
+			if (tmp.empty());
 			{
 				throw(string)"The name cant be empty";
 			}
@@ -165,7 +165,7 @@ string RusBTR::setCrew()
 
 void RusBTR::print()
 {
-	cout << "Tank's name: " << this->name << endl
+	cout << "BTR's name: " << this->name << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
 		<< "Amount of Tanks in hangar: " << this->amount << endl
@@ -176,7 +176,7 @@ void RusBTR::print()
 
 void RusBTR::save(ofstream& fout)
 {
-	fout << "Tank's name: " << this->name << endl
+	fout << "BTR's name: " << this->name << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
 		<< "Amount of Tanks in hangar: " << this->amount << endl
@@ -192,12 +192,12 @@ int RusBTR::load(ifstream& fin)
 	{
 		string tmp;
 		string line;
-		tmp = "Tank's name: ";
+		tmp = "BTR's name: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The name of the BTR is not in the file.";
 		}
 		name = line;
 		tmp = "Area of movement: ";
@@ -205,7 +205,7 @@ int RusBTR::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The name of the BTR is not in the file.";
 		}
 		if (line != "ground")
 		{
@@ -217,7 +217,7 @@ int RusBTR::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The name of the BTR is not in the file.";
 		}
 		if (line.length() > 4)
 		{
@@ -237,7 +237,7 @@ int RusBTR::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The name of the BTR is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -259,7 +259,7 @@ int RusBTR::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The name of the BTR is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -278,7 +278,7 @@ int RusBTR::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The name of the BTR is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{

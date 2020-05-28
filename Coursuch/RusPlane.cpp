@@ -1,20 +1,20 @@
-#include "RusTank.h"
+#include "RusPlane.h"
 
-string RusTank::setName()
+string RusPlane::setName()
 {
 	while (true)
 	{
 		try
 		{
-		cout << "Enter a tank's name:" << endl;
-		string tmp;
-		cin >> tmp;
-		if (tmp.empty());
-		{
-			throw(string)"The name cant be empty";
-		}
-		name = tmp;
-		return name;
+			cout << "Enter a Plane's name:" << endl;
+			string tmp;
+			cin >> tmp;
+			if (tmp.empty());
+			{
+				throw(string)"The name cant be empty";
+			}
+			name = tmp;
+			return name;
 		}
 		catch (string error)
 		{
@@ -23,10 +23,10 @@ string RusTank::setName()
 	}
 }
 
-string RusTank::setPower()
+string RusPlane::setPower()
 {
-	while(true)
-	{ 
+	while (true)
+	{
 		try
 		{
 			string tmp;
@@ -50,35 +50,35 @@ string RusTank::setPower()
 	}
 }
 
-string RusTank::setWeapon()
+string RusPlane::setWeapon()
 {
 	while (true)
 	{
 		try
 		{
 			string tmp;
-			cout << "Choose a weapon: Cannon or Howitzer" << endl;
+			cout << "This is a Plane, he can only have a MG." << endl;
 			cin >> tmp;
-			if (tmp != "Cannon" && tmp != "Howitzer")
-				throw (string)"You can choose only between Cannon and Howitzer";
+			if (tmp != "MG")
+				throw (string)"You can choose only \"MG\" as a weapon.";
 			weapon = tmp;
 			return weapon;
 		}
-		catch(string error)
+		catch (string error)
 		{
 			cout << "ERROR:" + error << endl;
 		}
 	}
 }
 
-string RusTank::setRange()
+string RusPlane::setRange()
 {
 	while (true)
 	{
 		try
 		{
 			string tmp;
-			cout << "Enter range of weapon(until 1000 km)" << endl;
+			cout << "Enter range of weapon(until 3 km)" << endl;
 			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
 			{
@@ -90,7 +90,7 @@ string RusTank::setRange()
 			}
 			int test;
 			test = stoi(tmp);
-			if (test > 1000)
+			if (test > 3)
 			{
 				throw(string)"Too much range.";
 			}
@@ -104,22 +104,18 @@ string RusTank::setRange()
 	}
 }
 
-string RusTank::setCaliber()
+string RusPlane::setCaliber()
 {
 	while (true)
 	{
 		try
 		{
 			string tmp;
-			cout << "Enter caliber of weapon(Russian weapon: Howitzer - 152 mm, Cannon - 125 mm)" << endl;
+			cout << "This is a Plane, its MG has 10 caliber." << endl;
 			cin >> tmp;
-			if (weapon == "Howitzer" && tmp!= "152")
+			if (tmp != "10")
 			{
-				throw (string)"For a russian howitzer you can choose only 152 mm.";
-			}
-			else if (weapon == "Cannon" && tmp!= "125")
-			{
-				throw (string)"For a russian cannon you can choose only 125 mm.";
+				throw (string)"The caliber of SMG is 12.";
 			}
 			caliber = tmp;
 			return caliber;
@@ -131,17 +127,17 @@ string RusTank::setCaliber()
 	}
 }
 
-string RusTank::setArea()
+string RusPlane::setArea()
 {
 	while (true)
 	{
 		try
 		{
 			string tmp;
-			cout << "This is a tank, it can only move on the ground." << endl;
+			cout << "This is a Plane, it can only move on the air." << endl;
 			cin >> tmp;
 			if (tmp != "ground")
-				throw (string)"You can choose only \"ground\" as an movament area.";
+				throw (string)"You can choose only \"air\" as an movement area.";
 			area = tmp;
 			return area;
 		}
@@ -152,7 +148,7 @@ string RusTank::setArea()
 	}
 }
 
-string RusTank::setYear()
+string RusPlane::setYear()
 {
 	while (true)
 	{
@@ -162,7 +158,7 @@ string RusTank::setYear()
 			cout << "Set year of assembly" << endl;
 			cin >> tmp;
 			if (tmp.length() > 4)
-				throw (string)"Incorrect size_tu of year, try again.";
+				throw (string)"Incorrect size of year, try again.";
 			for (int i = 0; i < tmp.length(); i++)
 			{
 				if (((tmp[i] >= 'A') && (tmp[i] <= 'Z')) || ((tmp[i] >= 'a') && (tmp[i] <= 'z')))
@@ -181,7 +177,7 @@ string RusTank::setYear()
 	}
 }
 
-string RusTank::setAmount()
+string RusPlane::setAmount()
 {
 	while (true)
 	{
@@ -211,13 +207,13 @@ string RusTank::setAmount()
 	}
 }
 
-string RusTank::setWeight()
+string RusPlane::setWeight()
 {
 	while (true)
 	{
 		try
 		{
-			cout << "Enter a weight of your tank (from 45 tons to 70 tons)." << endl;
+			cout << "Enter a weight of your plane (from 20 tons to 30 tons)." << endl;
 			string tmp;
 			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
@@ -229,8 +225,8 @@ string RusTank::setWeight()
 				}
 			}
 			int test1 = stoi(tmp);
-			if ((test1 > 70) || (test1 < 45))
-				throw(string)"The a tank cannot weigh less than 45 tons and more than 70";
+			if ((test1 > 30) || (test1 < 20))
+				throw(string)"The a Plane cannot weigh less than 20 tons and more than 30";
 			weight = tmp;
 			return weight;
 		}
@@ -241,14 +237,14 @@ string RusTank::setWeight()
 	}
 }
 
-string RusTank::setCrew()
+string RusPlane::setCrew()
 {
 	while (true)
 	{
 		try
 		{
 			string tmp;
-			cout << "Enter a number of people of your tank (from 2 to 5 man)." << endl;
+			cout << "Enter a number of people of your plane (from 2 to 3 man)." << endl;
 			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
 			{
@@ -259,7 +255,7 @@ string RusTank::setCrew()
 				}
 			}
 			int test = stoi(tmp);
-			if ((test > 5) || (test < 2))
+			if ((test > 3) || (test < 2))
 				throw(string)"The number of people is incorrect.";
 			crew = tmp;
 			return crew;
@@ -271,49 +267,47 @@ string RusTank::setCrew()
 	}
 }
 
-void RusTank::print()
+void RusPlane::print()
 {
-	cout << "Tank's name: " << this->name << endl
+	cout << "Plane's name: " << this->name << endl
 		<< "Range: " << this->range << endl
 		<< "Firepower: " << this->power << endl
 		<< "Weaponry: " << this->weapon << endl
 		<< "Caliber: " << this->caliber << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
-		<< "Amount of Tanks in hangar: " << this->amount << endl
+		<< "Amount of Planes in hangar: " << this->amount << endl
 		<< "Weight: " << this->weight << endl
-		<< "Number of people in the crew: " << this->crew << endl
 		<< "====================================" << endl;
 }
 
-void RusTank::save(ofstream& fout)
+void RusPlane::save(ofstream& fout)
 {
-	fout << "Tank's name: " << this->name << endl
+	fout << "Plane's name: " << this->name << endl
 		<< "Range: " << this->range << endl
 		<< "Firepower: " << this->power << endl
 		<< "Weaponry: " << this->weapon << endl
 		<< "Caliber: " << this->caliber << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
-		<< "Amount of Tanks in hangar: " << this->amount << endl
+		<< "Amount of Planets in hangar: " << this->amount << endl
 		<< "Weight: " << this->weight << endl
-		<< "Number of people in the crew: " << this->crew << endl
 		<< "====================================" << endl;
 	cout << "All data saved" << endl;
 }
 
-int RusTank::load(ifstream& fin)
+int RusPlane::load(ifstream& fin)
 {
-	try 
+	try
 	{
 		string tmp;
 		string line;
-		tmp = "Tank's name: ";
+		tmp = "Plane's name: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the tank is not in the file.";
+			throw(string)"The data of the Plane is not in the file.";
 		}
 		name = line;
 		tmp = "Range: ";
@@ -321,7 +315,7 @@ int RusTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the tank is not in the file.";
+			throw(string)"The data of the Plane is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -333,7 +327,7 @@ int RusTank::load(ifstream& fin)
 		}
 		int test;
 		test = stoi(line);
-		if (test > 1000)
+		if (test > 3)
 		{
 			throw(string)"Too much range.";
 		}
@@ -343,7 +337,7 @@ int RusTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the tank is not in the file.";
+			throw(string)"The data of the Plane is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -359,23 +353,23 @@ int RusTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the tank is not in the file.";
+			throw(string)"The data of the Plane is not in the file.";
 		}
-		if (line != "Cannon" && line != "Howitzer")
+		if (line != "MG")
 		{
-			throw (string)"You can choose only between Cannon and Howitzer";
+			throw (string)"You can choose only MG";
 		}
 		weapon = line;
 		tmp = "Caliber: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
-		if (weapon == "Howitzer" && line != "152")
+		if (line.empty())
 		{
-			throw (string)"For a russian howitzer you can choose only 152 mm.";
+			throw(string)"The data of the Plane is not in the file.";
 		}
-		else if (weapon == "Cannon" && line != "125")
+		if (line != "12")
 		{
-			throw (string)"For a russian cannon you can choose only 125 mm.";
+			throw (string)"The caliber of MG is 12.";
 		}
 		caliber = line;
 		tmp = "Area of movement: ";
@@ -383,11 +377,11 @@ int RusTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the tank is not in the file.";
+			throw(string)"The name of the Plane is not in the file.";
 		}
-		if (line != "ground")
+		if (line != "air")
 		{
-			throw (string)"You can choose only \"ground\" as an movament area.";
+			throw (string)"You can choose only \"air\" as an movament area.";
 		}
 		area = line;
 		tmp = "Date of assembly: ";
@@ -395,11 +389,11 @@ int RusTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the tank is not in the file.";
+			throw(string)"The data of the Planet is not in the file.";
 		}
 		if (line.length() > 4)
 		{
-			throw (string)"Incorrect size_tu of year, try again.";
+			throw (string)"Incorrect size of year, try again.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -410,12 +404,12 @@ int RusTank::load(ifstream& fin)
 			}
 		}
 		year = line;
-		tmp = "Amount of Tanks in hangar: ";
+		tmp = "Amount of Planes in hangar: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the tank is not in the file.";
+			throw(string)"The data of the Plane is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -436,7 +430,7 @@ int RusTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the tank is not in the file.";
+			throw(string)"The data of the Plane is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -447,15 +441,15 @@ int RusTank::load(ifstream& fin)
 			}
 		}
 		int test1 = stoi(line);
-		if ((test1 > 70) || (test1 < 45))
-			throw(string)"The a data cannot weigh less than 45 tons and more than 70";
+		if ((test1 > 30) || (test1 < 20))
+			throw(string)"The a tank cannot weigh less than 1 tons and more than 3";
 		weight = line;
 		tmp = "Number of people in the crew: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the tank is not in the file.";
+			throw(string)"The data of the plane is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -466,64 +460,64 @@ int RusTank::load(ifstream& fin)
 			}
 		}
 		test = stoi(line);
-		if ((test > 5) || (test < 2))
+		if ((test > 3) || (test < 2))
 			throw(string)"The number of people is incorrect.";
 		crew = line;
 		getline(fin, line);
 	}
-	catch(string error)
+	catch (string error)
 	{
 		cout << "ERROR:" + error << endl;
 		return -1;//error signal.
 	}
 }
 
-string RusTank::getName()
+string RusPlane::getName()
 {
 	return name;
 }
 
-string RusTank::getRange()
+string RusPlane::getRange()
 {
 	return range;
 }
 
-string RusTank::getPower()
+string RusPlane::getPower()
 {
 	return power;
 }
 
-string RusTank::getWeapon()
+string RusPlane::getWeapon()
 {
 	return weapon;
 }
 
-string RusTank::getCaliber()
+string RusPlane::getCaliber()
 {
 	return caliber;
 }
 
-string RusTank::getArea()
+string RusPlane::getArea()
 {
 	return area;
 }
 
-string RusTank::getYear()
+string RusPlane::getYear()
 {
 	return year;
 }
 
-string RusTank::getAmount()
+string RusPlane::getAmount()
 {
 	return amount;
 }
 
-string RusTank::getWeight()
+string RusPlane::getWeight()
 {
 	return weight;
 }
 
-string RusTank::getCrew()
+string RusPlane::getCrew()
 {
 	return crew;
 }

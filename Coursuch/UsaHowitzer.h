@@ -1,6 +1,6 @@
 #pragma once
-#include "Tank.h"
-class UsaTank : public Tank
+#include "Howitzer.h"
+class UsaHowitzer : public Howitzer
 {
 public:
 	string name;         //название
@@ -13,7 +13,7 @@ public:
 	string amount;		 //количество в ангаре
 	string weight;		 //вес
 	string crew;		 //число экипажа
-	
+
 	string setName();
 	string setRange();
 	string setPower();

@@ -9,7 +9,7 @@ string UsaTank::setName()
 			cout << "Enter a tank's name:" << endl;
 			string tmp;
 			cin >> tmp;
-			if (tmp == "");
+			if (tmp.empty());
 			{
 				throw(string)"The name cant be empty";
 			}
@@ -111,15 +111,15 @@ string UsaTank::setCaliber()
 		try
 		{
 			string tmp;
-			cout << "Enter caliber of weapon(Russian weapon: Howitzer - 150 mm, Cannon - 120 mm)" << endl;
+			cout << "Enter caliber of weapon(Usasian weapon: Howitzer - 150 mm, Cannon - 120 mm)" << endl;
 			cin >> tmp;
 			if (weapon == "Howitzer" && tmp != "150")
 			{
-				throw (string)"For a USA howitzer you can choose only 150 mm.";
+				throw (string)"For a Usasian howitzer you can choose only 150 mm.";
 			}
 			else if (weapon == "Cannon" && tmp != "120")
 			{
-				throw (string)"For a USA cannon you can choose only 120 mm.";
+				throw (string)"For a Usasian cannon you can choose only 120 mm.";
 			}
 			caliber = tmp;
 			return caliber;
@@ -313,7 +313,7 @@ int UsaTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		name = line;
 		tmp = "Range: ";
@@ -321,7 +321,7 @@ int UsaTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -343,7 +343,7 @@ int UsaTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -359,7 +359,7 @@ int UsaTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		if (line != "Cannon" && line != "Howitzer")
 		{
@@ -371,11 +371,11 @@ int UsaTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (weapon == "Howitzer" && line != "150")
 		{
-			throw (string)"For a russian howitzer you can choose only 150 mm.";
+			throw (string)"For a USA howitzer you can choose only 150 mm.";
 		}
 		else if (weapon == "Cannon" && line != "120")
 		{
-			throw (string)"For a russian cannon you can choose only 120 mm.";
+			throw (string)"For a Usasian cannon you can choose only 120 mm.";
 		}
 		caliber = line;
 		tmp = "Area of movement: ";
@@ -383,7 +383,7 @@ int UsaTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		if (line != "ground")
 		{
@@ -395,7 +395,7 @@ int UsaTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		if (line.length() > 4)
 		{
@@ -415,7 +415,7 @@ int UsaTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -436,7 +436,7 @@ int UsaTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -448,14 +448,14 @@ int UsaTank::load(ifstream& fin)
 		}
 		int test1 = stoi(line);
 		if ((test1 > 70) || (test1 < 45))
-			throw(string)"The a tank cannot weigh less than 45 tons and more than 70";
+			throw(string)"The a data cannot weigh less than 45 tons and more than 70";
 		weight = line;
 		tmp = "Number of people in the crew: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{

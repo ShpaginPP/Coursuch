@@ -1,6 +1,6 @@
 #pragma once
-#include "Tank.h"
-class UsaTank : public Tank
+#include "Robo.h"
+class UsaRobo : public Robo
 {
 public:
 	string name;         //название
@@ -12,8 +12,7 @@ public:
 	string year;		 //дата изготовления
 	string amount;		 //количество в ангаре
 	string weight;		 //вес
-	string crew;		 //число экипажа
-	
+
 	string setName();
 	string setRange();
 	string setPower();
@@ -23,7 +22,6 @@ public:
 	string setYear();
 	string setAmount();
 	string setWeight();
-	string setCrew();
 	void print();
 	void save(ofstream& fout);
 	int load(ifstream& fin);
@@ -36,5 +34,4 @@ public:
 	string getYear();
 	string getAmount();
 	string getWeight();
-	string getCrew();
 };

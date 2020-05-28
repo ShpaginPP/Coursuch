@@ -21,23 +21,43 @@
   <ItemGroup>
     <ClCompile Include="BTR.cpp" />
     <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="Howitzer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="Robo.cpp" />
     <ClCompile Include="RusBTR.cpp" />
     <ClCompile Include="RusFactory.cpp" />
+    <ClCompile Include="RusHowitzer.cpp" />
+    <ClCompile Include="RusPlane.cpp" />
+    <ClCompile Include="RusRobo.cpp" />
     <ClCompile Include="RusTank.cpp" />
     <ClCompile Include="Tank.cpp" />
-    <ClCompile Include="USAFactory.cpp" />
-    <ClCompile Include="USATank.cpp" />
+    <ClCompile Include="UsaBTR.cpp" />
+    <ClCompile Include="UsaFactory.cpp" />
+    <ClCompile Include="UsaHowitzer.cpp" />
+    <ClCompile Include="UsaPlane.cpp" />
+    <ClCompile Include="UsaRobo.cpp" />
+    <ClCompile Include="UsaTank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BTR.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="Howitzer.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="Robo.h" />
     <ClInclude Include="RusBTR.h" />
     <ClInclude Include="RusFactory.h" />
+    <ClInclude Include="RusHowitzer.h" />
+    <ClInclude Include="RusPlane.h" />
+    <ClInclude Include="RusRobo.h" />
     <ClInclude Include="RusTank.h" />
     <ClInclude Include="Tank.h" />
-    <ClInclude Include="USAFactory.h" />
-    <ClInclude Include="USATank.h" />
+    <ClInclude Include="UsaBTR.h" />
+    <ClInclude Include="UsaFactory.h" />
+    <ClInclude Include="UsaHowitzer.h" />
+    <ClInclude Include="UsaPlane.h" />
+    <ClInclude Include="UsaRobo.h" />
+    <ClInclude Include="UsaTank.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rustank.txt" />
