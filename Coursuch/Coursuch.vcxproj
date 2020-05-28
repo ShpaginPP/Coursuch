@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BTR.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RusBTR.cpp" />
     <ClCompile Include="RusFactory.cpp" />
     <ClCompile Include="RusTank.cpp" />
     <ClCompile Include="Tank.cpp" />
@@ -28,7 +30,9 @@
     <ClCompile Include="USATank.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BTR.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="RusBTR.h" />
     <ClInclude Include="RusFactory.h" />
     <ClInclude Include="RusTank.h" />
     <ClInclude Include="Tank.h" />

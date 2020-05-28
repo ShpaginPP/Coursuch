@@ -1,20 +1,20 @@
-#include "RusTank.h"
+#include "RusBTR.h"
 
-string RusTank::setName()
+string RusBTR::setName()
 {
 	while (true)
 	{
 		try
 		{
-		cout << "Enter a tank's name:" << endl;
-		string tmp;
-		cin >> tmp;
-		if (tmp == "");
-		{
-			throw(string)"The name cant be empty";
-		}
-		name = tmp;
-		return name;
+			cout << "Enter a tank's name:" << endl;
+			string tmp;
+			cin >> tmp;
+			if (tmp == "");
+			{
+				throw(string)"The name cant be empty";
+			}
+			name = tmp;
+			return name;
 		}
 		catch (string error)
 		{
@@ -23,115 +23,7 @@ string RusTank::setName()
 	}
 }
 
-string RusTank::setPower()
-{
-	while(true)
-	{ 
-		try
-		{
-			string tmp;
-			cout << "Enter a quality of firepower" << endl;
-			cin >> tmp;
-			for (int i = 0; i < tmp.length(); i++)
-			{
-				if (((tmp[i] >= 'A') && (tmp[i] <= 'Z')) || ((tmp[i] >= 'a') && (tmp[i] <= 'z')))
-				{
-					throw(string)"This parameter must be numeric.";
-					break;
-				}
-			}
-			power = tmp;
-			return power;
-		}
-		catch (string error)
-		{
-			cout << "ERROR:" + error << endl;
-		}
-	}
-}
-
-string RusTank::setWeapon()
-{
-	while (true)
-	{
-		try
-		{
-			string tmp;
-			cout << "Choose a weapon: Cannon or Howitzer" << endl;
-			cin >> tmp;
-			if (tmp != "Cannon" && tmp != "Howitzer")
-				throw (string)"You can choose only between Cannon and Howitzer";
-			weapon = tmp;
-			return weapon;
-		}
-		catch(string error)
-		{
-			cout << "ERROR:" + error << endl;
-		}
-	}
-}
-
-string RusTank::setRange()
-{
-	while (true)
-	{
-		try
-		{
-			string tmp;
-			cout << "Enter range of weapon(until 1000 km)" << endl;
-			cin >> tmp;
-			for (int i = 0; i < tmp.length(); i++)
-			{
-				if (((tmp[i] >= 'A') && (tmp[i] <= 'Z')) || ((tmp[i] >= 'a') && (tmp[i] <= 'z')))
-				{
-					throw(string)"This parameter must be numeric.";
-					break;
-				}
-			}
-			int test;
-			test = stoi(tmp);
-			if (test > 1000)
-			{
-				throw(string)"Too much range.";
-			}
-			range = tmp;
-			return range;
-		}
-		catch (string error)
-		{
-			cout << "ERROR:" + error << endl;
-		}
-	}
-}
-
-string RusTank::setCaliber()
-{
-	while (true)
-	{
-		try
-		{
-			string tmp;
-			cout << "Enter caliber of weapon(Russian weapon: Howitzer - 152 mm, Cannon - 125 mm)" << endl;
-			cin >> tmp;
-			if (weapon == "Howitzer" && tmp!= "152")
-			{
-				throw (string)"For a russian howitzer you can choose only 152 mm.";
-			}
-			else if (weapon == "Cannon" && tmp!= "125")
-			{
-				throw (string)"For a russian cannon you can choose only 125 mm.";
-			}
-			caliber = tmp;
-			return caliber;
-		}
-		catch (string error)
-		{
-			cout << "ERROR:" + error << endl;
-		}
-	}
-}
-
-string RusTank::setArea()
+string RusBTR::setArea()
 {
 	while (true)
 	{
@@ -152,7 +44,7 @@ string RusTank::setArea()
 	}
 }
 
-string RusTank::setYear()
+string RusBTR::setYear()
 {
 	while (true)
 	{
@@ -181,7 +73,7 @@ string RusTank::setYear()
 	}
 }
 
-string RusTank::setAmount()
+string RusBTR::setAmount()
 {
 	while (true)
 	{
@@ -211,7 +103,7 @@ string RusTank::setAmount()
 	}
 }
 
-string RusTank::setWeight()
+string RusBTR::setWeight()
 {
 	while (true)
 	{
@@ -241,7 +133,7 @@ string RusTank::setWeight()
 	}
 }
 
-string RusTank::setCrew()
+string RusBTR::setCrew()
 {
 	while (true)
 	{
@@ -271,13 +163,9 @@ string RusTank::setCrew()
 	}
 }
 
-void RusTank::print()
+void RusBTR::print()
 {
 	cout << "Tank's name: " << this->name << endl
-		<< "Range: " << this->range << endl
-		<< "Firepower: " << this->power << endl
-		<< "Weaponry: " << this->weapon << endl
-		<< "Caliber: " << this->caliber << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
 		<< "Amount of Tanks in hangar: " << this->amount << endl
@@ -286,13 +174,9 @@ void RusTank::print()
 		<< "====================================" << endl;
 }
 
-void RusTank::save(ofstream& fout)
+void RusBTR::save(ofstream& fout)
 {
 	fout << "Tank's name: " << this->name << endl
-		<< "Range: " << this->range << endl
-		<< "Firepower: " << this->power << endl
-		<< "Weaponry: " << this->weapon << endl
-		<< "Caliber: " << this->caliber << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
 		<< "Amount of Tanks in hangar: " << this->amount << endl
@@ -302,9 +186,9 @@ void RusTank::save(ofstream& fout)
 	cout << "All data saved" << endl;
 }
 
-int RusTank::load(ifstream& fin)
+int RusBTR::load(ifstream& fin)
 {
-	try 
+	try
 	{
 		string tmp;
 		string line;
@@ -316,68 +200,6 @@ int RusTank::load(ifstream& fin)
 			throw(string)"The name of the tank is not in the file.";
 		}
 		name = line;
-		tmp = "Range: ";
-		getline(fin, line);
-		line.replace(line.find(tmp), tmp.length(), "");
-		if (line.empty())
-		{
-			throw(string)"The name of the tank is not in the file.";
-		}
-		for (int i = 0; i < line.length(); i++)
-		{
-			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
-			{
-				throw(string)"This parameter must be numeric. ";
-				break;
-			}
-		}
-		int test;
-		test = stoi(line);
-		if (test > 1000)
-		{
-			throw(string)"Too much range.";
-		}
-		range = line;
-		tmp = "Firepower: ";
-		getline(fin, line);
-		line.replace(line.find(tmp), tmp.length(), "");
-		if (line.empty())
-		{
-			throw(string)"The name of the tank is not in the file.";
-		}
-		for (int i = 0; i < line.length(); i++)
-		{
-			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
-			{
-				throw(string)"This parameter must be numeric.";
-				break;
-			}
-		}
-		power = line;
-		tmp = "Weaponry: ";
-		getline(fin, line);
-		line.replace(line.find(tmp), tmp.length(), "");
-		if (line.empty())
-		{
-			throw(string)"The name of the tank is not in the file.";
-		}
-		if (line != "Cannon" && line != "Howitzer")
-		{
-			throw (string)"You can choose only between Cannon and Howitzer";
-		}
-		weapon = line;
-		tmp = "Caliber: ";
-		getline(fin, line);
-		line.replace(line.find(tmp), tmp.length(), "");
-		if (weapon == "Howitzer" && line != "152")
-		{
-			throw (string)"For a russian howitzer you can choose only 152 mm.";
-		}
-		else if (weapon == "Cannon" && line != "125")
-		{
-			throw (string)"For a russian cannon you can choose only 125 mm.";
-		}
-		caliber = line;
 		tmp = "Area of movement: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
@@ -425,6 +247,7 @@ int RusTank::load(ifstream& fin)
 				break;
 			}
 		}
+		int test;
 		test = stoi(line);
 		if (test > 10)
 		{
@@ -471,59 +294,39 @@ int RusTank::load(ifstream& fin)
 		crew = line;
 		getline(fin, line);
 	}
-	catch(string error)
+	catch (string error)
 	{
 		cout << "ERROR:" + error << endl;
 		return -1;//error signal.
 	}
 }
 
-string RusTank::getName()
+string RusBTR::getName()
 {
 	return name;
 }
 
-string RusTank::getRange()
-{
-	return range;
-}
-
-string RusTank::getPower()
-{
-	return power;
-}
-
-string RusTank::getWeapon()
-{
-	return weapon;
-}
-
-string RusTank::getCaliber()
-{
-	return caliber;
-}
-
-string RusTank::getArea()
+string RusBTR::getArea()
 {
 	return area;
 }
 
-string RusTank::getYear()
+string RusBTR::getYear()
 {
 	return year;
 }
 
-string RusTank::getAmount()
+string RusBTR::getAmount()
 {
 	return amount;
 }
 
-string RusTank::getWeight()
+string RusBTR::getWeight()
 {
 	return weight;
 }
 
-string RusTank::getCrew()
+string RusBTR::getCrew()
 {
 	return crew;
 }
