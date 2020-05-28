@@ -7,9 +7,7 @@ class Factory
 		virtual void printTank(void) = 0;
 		virtual void editTank() = 0;
 		virtual void deleteTank() = 0;
-		/*
 		virtual void loadTank() = 0;
-		*/
 		virtual void saveTank() = 0;
 		virtual ~Factory() {};
 };

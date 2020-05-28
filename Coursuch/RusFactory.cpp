@@ -58,7 +58,7 @@ void RusFactory::editTank()
 	}
 	try
 	{
-		for (int i; i < size; i++)
+		for (int i=0; i < size; i++)
 		{
 			cout << i << ")." << Data[i]->getName() << endl;
 		}
@@ -88,53 +88,43 @@ void RusFactory::editTank()
 		switch (choice)
 		{
 			case 1:
-				cout << "Current value:"<< Data[index]->getName() <<endl
-					<< "New value:" << endl;
+				cout << "Current value:"<< Data[index]->getName() <<endl;
 				Data[index]->setName();
 				break;
 			case 2:
-				cout << "Current value:" << Data[index]->getRange() << endl
-					<< "New value:" << endl;
+				cout << "Current value:" << Data[index]->getRange() << endl;
 				Data[index]->setRange();
 				break;
 			case 3:
-				cout << "Current value:" << Data[index]->getPower() << endl
-					<< "New value:" << endl;
+				cout << "Current value:" << Data[index]->getPower() << endl;
 				Data[index]->setPower();
 				break;
 			case 4:
-				cout << "Current value:" << Data[index]->getWeapon() << endl
-					<< "New value:" << endl;
+				cout << "Current value:" << Data[index]->getWeapon() << endl;
 				Data[index]->setWeapon();
 				break;
 			case 5:
-				cout << "Current value:" << Data[index]->getCaliber() << endl
-					<< "New value:" << endl;
+				cout << "Current value:" << Data[index]->getCaliber() << endl;
 				Data[index]->setCaliber();
 				break;
 			case 6:
-				cout << "Current value:" << Data[index]->getArea() << endl
-					<< "New value:" << endl;
+				cout << "Current value:" << Data[index]->getArea() << endl;
 				Data[index]->setArea();
 				break;
 			case 7:
-				cout << "Current value:" << Data[index]->getYear() << endl
-					<< "New value:" << endl;
+				cout << "Current value:" << Data[index]->getYear() << endl;
 				Data[index]->setYear();
 				break;
 			case 8:
-				cout << "Current value:" << Data[index]->getAmount() << endl
-					<< "New value:" << endl;
+				cout << "Current value:" << Data[index]->getAmount() << endl;
 				Data[index]->setAmount();
 				break;
 			case 9:
-				cout << "Current value:" << Data[index]->getWeight() << endl
-					<< "New value:" << endl;
+				cout << "Current value:" << Data[index]->getWeight() << endl;
 				Data[index]->setWeight();
 				break;
 			case 10:
-				cout << "Current value:" << Data[index]->getCrew() << endl
-					<< "New value:" << endl;
+				cout << "Current value:" << Data[index]->getCrew() << endl;
 				Data[index]->setCrew();
 				break;
 		}
@@ -162,7 +152,7 @@ void RusFactory::deleteTank()
 	}
 	try
 	{
-		for (int i; i < size; i++)
+		for (int i=0; i < size; i++)
 		{
 			cout << i << ")." << Data[i]->getName() << endl;
 		}
@@ -233,10 +223,18 @@ void RusFactory::loadTank()
 			tmp[i] = Data[i];
 		}
 		tmp[size] = new RusTank;
-		tmp[size]->load(fin);
-		size++;
-		delete[] Data;
-		Data = tmp;
+		if (tmp[size]->load(fin) != -1)
+		{
+			size++;
+			delete[] Data;
+			Data = tmp;
+		}
+		else
+		{
+			cout<<"There is an error in file, edit it correctly";
+			fin.close();
+			return;
+		}
 	}
 	fin.close();
 	cout << "Units load on file rustank.txt" << endl;
@@ -257,8 +255,3 @@ void RusFactory::saveTank()
 	cout << "Units saves to file rustank.txt" << endl;
 	system("pause");
 }
-
-void loadTank()
-{}
-
-

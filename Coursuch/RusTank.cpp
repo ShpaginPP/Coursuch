@@ -3,8 +3,8 @@
 string RusTank::setName()
 {
 	cout << "Enter a tank's name:" << endl;
-	string tmp;	
-	getline(cin, tmp);
+	string tmp;
+	cin >> tmp;
 	name = tmp;
 	return name;
 }
@@ -17,7 +17,7 @@ string RusTank::setPower()
 		{
 			string tmp;
 			cout << "Enter a quality of firepower" << endl;
-			getline(cin, tmp);
+			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
 			{
 				if (((tmp[i] >= 'A') && (tmp[i] <= 'Z')) || ((tmp[i] >= 'a') && (tmp[i] <= 'z')))
@@ -44,7 +44,7 @@ string RusTank::setWeapon()
 		{
 			string tmp;
 			cout << "Choose a weapon: Cannon or Howitzer" << endl;
-			getline(cin, tmp);
+			cin >> tmp;
 			if (tmp != "Cannon" && tmp != "Howitzer")
 				throw (string)"You can choose only between Cannon and Howitzer";
 			weapon = tmp;
@@ -65,7 +65,7 @@ string RusTank::setRange()
 		{
 			string tmp;
 			cout << "Enter range of weapon(until 1000 km)" << endl;
-			getline(cin, tmp);
+			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
 			{
 				if (((tmp[i] >= 'A') && (tmp[i] <= 'Z')) || ((tmp[i] >= 'a') && (tmp[i] <= 'z')))
@@ -74,7 +74,8 @@ string RusTank::setRange()
 					break;
 				}
 			}
-			int test = stoi(tmp);
+			int test;
+			test = stoi(tmp);
 			if (test > 1000)
 			{
 				throw(string)"Too much range.";
@@ -97,7 +98,7 @@ string RusTank::setCaliber()
 		{
 			string tmp;
 			cout << "Enter caliber of weapon(Russian weapon: Howitzer - 152 mm, Cannon - 125 mm)" << endl;
-			getline(cin, tmp);
+			cin >> tmp;
 			if (weapon == "Howitzer" && tmp!= "152")
 			{
 				throw (string)"For a russian howitzer you can choose only 152 mm.";
@@ -124,7 +125,7 @@ string RusTank::setArea()
 		{
 			string tmp;
 			cout << "This is a tank, it can only move on the ground." << endl;
-			getline(cin, tmp);
+			cin >> tmp;
 			if (tmp != "ground")
 				throw (string)"You can choose only \"ground\" as an movament area.";
 			area = tmp;
@@ -145,7 +146,7 @@ string RusTank::setYear()
 		{
 			string tmp;
 			cout << "Set year of assembly" << endl;
-			getline(cin, tmp);
+			cin >> tmp;
 			if (tmp.length() > 4)
 				throw (string)"Incorrect size of year, try again.";
 			for (int i = 0; i < tmp.length(); i++)
@@ -174,7 +175,7 @@ string RusTank::setAmount()
 		{
 			cout << "Enter amount of this tanks(until 10)." << endl;
 			string tmp;
-			getline(cin, tmp);
+			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
 			{
 				if (((tmp[i] >= 'A') && (tmp[i] <= 'Z')) || ((tmp[i] >= 'a') && (tmp[i] <= 'z')))
@@ -204,7 +205,7 @@ string RusTank::setWeight()
 		{
 			cout << "Enter a weight of your tank (from 45 tons to 70 tons)." << endl;
 			string tmp;
-			getline(cin, tmp);
+			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
 			{
 				if (((tmp[i] >= 'A') && (tmp[i] <= 'Z')) || ((tmp[i] >= 'a') && (tmp[i] <= 'z')))
@@ -234,7 +235,7 @@ string RusTank::setCrew()
 		{
 			string tmp;
 			cout << "Enter a number of people of your tank (from 2 to 5 man)." << endl;
-			getline(cin, tmp);
+			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
 			{
 				if (((tmp[i] >= 'A') && (tmp[i] <= 'Z')) || ((tmp[i] >= 'a') && (tmp[i] <= 'z')))
@@ -287,51 +288,148 @@ void RusTank::save(ofstream& fout)
 	cout << "All data saved" << endl;
 }
 
-void RusTank::load(ifstream& fin)
+int RusTank::load(ifstream& fin)
 {
-	string tmp;
-	string line;
-	tmp = "Tank's name: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	name = line;
-	tmp = "Range: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	range = line;
-	tmp = "Firepower: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	power = line;
-	tmp = "Weponry: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	weapon = line;
-	tmp = "Caliber: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	caliber = line;
-	tmp = "Area of movement: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	area = line;
-	tmp = "Date of assembly: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	year = line;
-	tmp = "Amount of Tanks in hangar: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	amount = line;
-	tmp = "Weight: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	weight = line;
-	tmp = "Number of people in the crew: ";
-	getline(fin, line);
-	line.replace(line.find(tmp), tmp.length(), "");
-	crew = line;
-	getline(fin, line);
+	try 
+	{
+		string tmp;
+		string line;
+		tmp = "Tank's name: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.empty())
+		{
+			throw(string)"The name of the tank is not in the file, go to reading the next element...";
+		}
+		name = line;
+		tmp = "Range: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		for (int i = 0; i < line.length(); i++)
+		{
+			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
+			{
+				throw(string)"This parameter must be numeric. go to reading next element";
+				break;
+			}
+		}
+		int test;
+		test = stoi(line);
+		if (test > 1000)
+		{
+			throw(string)"Too much range.";
+		}
+		range = line;
+		tmp = "Firepower: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		for (int i = 0; i < line.length(); i++)
+		{
+			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
+			{
+				throw(string)"This parameter must be numeric.";
+				break;
+			}
+		}
+		power = line;
+		tmp = "Weaponry: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		if (line != "Cannon" && line != "Howitzer")
+		{
+			throw (string)"You can choose only between Cannon and Howitzer";
+		}
+		weapon = line;
+		tmp = "Caliber: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		if (weapon == "Howitzer" && line != "152")
+		{
+			throw (string)"For a russian howitzer you can choose only 152 mm.";
+		}
+		else if (weapon == "Cannon" && line != "125")
+		{
+			throw (string)"For a russian cannon you can choose only 125 mm.";
+		}
+		caliber = line;
+		tmp = "Area of movement: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		if (line != "ground")
+		{
+			throw (string)"You can choose only \"ground\" as an movament area.";
+		}
+		area = line;
+		tmp = "Date of assembly: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.length() > 4)
+		{
+			throw (string)"Incorrect size of year, try again.";
+		}
+		for (int i = 0; i < line.length(); i++)
+		{
+			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
+			{
+				throw(string)"This parameter must be numeric.";
+				break;
+			}
+		}
+		year = line;
+		tmp = "Amount of Tanks in hangar: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		for (int i = 0; i < line.length(); i++)
+		{
+			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
+			{
+				throw(string)"This parameter must be numeric.";
+				break;
+			}
+		}
+		int test = stoi(line);
+		if (test > 10)
+		{
+			throw(string)"The hangar is designed for 10 combat vehicles";
+		}
+		amount = line;
+		tmp = "Weight: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		for (int i = 0; i < line.length(); i++)
+		{
+			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
+			{
+				throw(string)"This parameter must be numeric.";
+				break;
+			}
+		}
+		int test1 = stoi(line);
+		if ((test1 > 70) || (test1 < 45))
+			throw(string)"The a tank cannot weigh less than 45 tons and more than 70";
+		weight = line;
+		tmp = "Number of people in the crew: ";
+		getline(fin, line);
+		line.replace(line.find(tmp), tmp.length(), "");
+		for (int i = 0; i < line.length(); i++)
+		{
+			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
+			{
+				throw(string)"This parameter must be numeric.";
+				break;
+			}
+		}
+		int test = stoi(line);
+		if ((test > 5) || (test < 2))
+			throw(string)"The number of people is incorrect.";
+		crew = line;
+		getline(fin, line);
+	}
+	catch(string error)
+	{
+		cout << "ERROR:" + error << endl;
+		return -1;//error signal.
+	}
 }
 
 string RusTank::getName()

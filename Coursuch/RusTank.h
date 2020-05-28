@@ -26,7 +26,7 @@ public:
 	string setCrew();
 	void print();
 	void save(ofstream& fout);
-	void load(ifstream& fin);
+	int load(ifstream& fin);
 	string getName();
 	string getRange();
 	string getPower();

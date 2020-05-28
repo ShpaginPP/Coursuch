@@ -24,12 +24,16 @@
     <ClCompile Include="RusFactory.cpp" />
     <ClCompile Include="RusTank.cpp" />
     <ClCompile Include="Tank.cpp" />
+    <ClCompile Include="USAFactory.cpp" />
+    <ClCompile Include="USATank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Factory.h" />
     <ClInclude Include="RusFactory.h" />
     <ClInclude Include="RusTank.h" />
     <ClInclude Include="Tank.h" />
+    <ClInclude Include="USAFactory.h" />
+    <ClInclude Include="USATank.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="rustank.txt" />
