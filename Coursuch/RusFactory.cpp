@@ -73,13 +73,12 @@ void RusFactory::editTank()
 			<< "1).Name;    " << endl
 			<< "2).Range;	" << endl
 			<< "3).Power;	" << endl
-			<< "4).Weapon;	" << endl
-			<< "5).Caliber;	" << endl
-			<< "6).Area;	" << endl
-			<< "7).Year;	" << endl
-			<< "8).Amount;	" << endl
-			<< "9).Weight;	" << endl
-			<< "10).Crew;	" << endl;
+			<< "4).Weapon and caliber;	" << endl
+			<< "5).Area;	" << endl
+			<< "6).Year;	" << endl
+			<< "7).Amount;	" << endl
+			<< "8).Weight;	" << endl
+			<< "9).Crew;	" << endl;
 		cin >> choice;
 		if (choice < 1 || choice>10)
 		{
@@ -102,28 +101,26 @@ void RusFactory::editTank()
 			case 4:
 				cout << "Current value:" << Data[index]->getWeapon() << endl;
 				Data[index]->setWeapon();
-				break;
-			case 5:
 				cout << "Current value:" << Data[index]->getCaliber() << endl;
 				Data[index]->setCaliber();
 				break;
-			case 6:
+			case 5:
 				cout << "Current value:" << Data[index]->getArea() << endl;
 				Data[index]->setArea();
 				break;
-			case 7:
+			case 6:
 				cout << "Current value:" << Data[index]->getYear() << endl;
 				Data[index]->setYear();
 				break;
-			case 8:
+			case 7:
 				cout << "Current value:" << Data[index]->getAmount() << endl;
 				Data[index]->setAmount();
 				break;
-			case 9:
+			case 8:
 				cout << "Current value:" << Data[index]->getWeight() << endl;
 				Data[index]->setWeight();
 				break;
-			case 10:
+			case 9:
 				cout << "Current value:" << Data[index]->getCrew() << endl;
 				Data[index]->setCrew();
 				break;

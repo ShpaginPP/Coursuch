@@ -2,11 +2,25 @@
 
 string RusTank::setName()
 {
-	cout << "Enter a tank's name:" << endl;
-	string tmp;
-	cin >> tmp;
-	name = tmp;
-	return name;
+	while (true)
+	{
+		try
+		{
+		cout << "Enter a tank's name:" << endl;
+		string tmp;
+		cin >> tmp;
+		if (tmp == "");
+		{
+			throw(string)"The name cant be empty";
+		}
+		name = tmp;
+		return name;
+		}
+		catch (string error)
+		{
+			cout << "ERROR:" + error << endl;
+		}
+	}
 }
 
 string RusTank::setPower()
@@ -262,7 +276,7 @@ void RusTank::print()
 	cout << "Tank's name: " << this->name << endl
 		<< "Range: " << this->range << endl
 		<< "Firepower: " << this->power << endl
-		<< "Weponry: " << this->weapon << endl
+		<< "Weaponry: " << this->weapon << endl
 		<< "Caliber: " << this->caliber << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
@@ -277,7 +291,7 @@ void RusTank::save(ofstream& fout)
 	fout << "Tank's name: " << this->name << endl
 		<< "Range: " << this->range << endl
 		<< "Firepower: " << this->power << endl
-		<< "Weponry: " << this->weapon << endl
+		<< "Weaponry: " << this->weapon << endl
 		<< "Caliber: " << this->caliber << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
@@ -299,17 +313,21 @@ int RusTank::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The name of the tank is not in the file, go to reading the next element...";
+			throw(string)"The name of the tank is not in the file.";
 		}
 		name = line;
 		tmp = "Range: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.empty())
+		{
+			throw(string)"The name of the tank is not in the file.";
+		}
 		for (int i = 0; i < line.length(); i++)
 		{
 			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
 			{
-				throw(string)"This parameter must be numeric. go to reading next element";
+				throw(string)"This parameter must be numeric. ";
 				break;
 			}
 		}
@@ -323,6 +341,10 @@ int RusTank::load(ifstream& fin)
 		tmp = "Firepower: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.empty())
+		{
+			throw(string)"The name of the tank is not in the file.";
+		}
 		for (int i = 0; i < line.length(); i++)
 		{
 			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
@@ -335,6 +357,10 @@ int RusTank::load(ifstream& fin)
 		tmp = "Weaponry: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.empty())
+		{
+			throw(string)"The name of the tank is not in the file.";
+		}
 		if (line != "Cannon" && line != "Howitzer")
 		{
 			throw (string)"You can choose only between Cannon and Howitzer";
@@ -355,6 +381,10 @@ int RusTank::load(ifstream& fin)
 		tmp = "Area of movement: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.empty())
+		{
+			throw(string)"The name of the tank is not in the file.";
+		}
 		if (line != "ground")
 		{
 			throw (string)"You can choose only \"ground\" as an movament area.";
@@ -363,6 +393,10 @@ int RusTank::load(ifstream& fin)
 		tmp = "Date of assembly: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.empty())
+		{
+			throw(string)"The name of the tank is not in the file.";
+		}
 		if (line.length() > 4)
 		{
 			throw (string)"Incorrect size of year, try again.";
@@ -379,6 +413,10 @@ int RusTank::load(ifstream& fin)
 		tmp = "Amount of Tanks in hangar: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.empty())
+		{
+			throw(string)"The name of the tank is not in the file.";
+		}
 		for (int i = 0; i < line.length(); i++)
 		{
 			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
@@ -387,7 +425,7 @@ int RusTank::load(ifstream& fin)
 				break;
 			}
 		}
-		int test = stoi(line);
+		test = stoi(line);
 		if (test > 10)
 		{
 			throw(string)"The hangar is designed for 10 combat vehicles";
@@ -396,6 +434,10 @@ int RusTank::load(ifstream& fin)
 		tmp = "Weight: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.empty())
+		{
+			throw(string)"The name of the tank is not in the file.";
+		}
 		for (int i = 0; i < line.length(); i++)
 		{
 			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
@@ -411,6 +453,10 @@ int RusTank::load(ifstream& fin)
 		tmp = "Number of people in the crew: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
+		if (line.empty())
+		{
+			throw(string)"The name of the tank is not in the file.";
+		}
 		for (int i = 0; i < line.length(); i++)
 		{
 			if (((line[i] >= 'A') && (line[i] <= 'Z')) || ((line[i] >= 'a') && (line[i] <= 'z')))
@@ -419,7 +465,7 @@ int RusTank::load(ifstream& fin)
 				break;
 			}
 		}
-		int test = stoi(line);
+		test = stoi(line);
 		if ((test > 5) || (test < 2))
 			throw(string)"The number of people is incorrect.";
 		crew = line;
