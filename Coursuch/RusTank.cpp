@@ -9,7 +9,7 @@ string RusTank::setName()
 		cout << "Enter a tank's name:" << endl;
 		string tmp;
 		cin >> tmp;
-		if (tmp.empty());
+		if (tmp.empty())
 		{
 			throw(string)"The name cant be empty";
 		}

@@ -60,7 +60,16 @@
     <ClInclude Include="UsaTank.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="rusbtr.txt" />
+    <Text Include="rushowitzer.txt" />
+    <Text Include="rusplane.txt" />
+    <Text Include="rusrobo.txt" />
     <Text Include="rustank.txt" />
+    <Text Include="usabtr.txt" />
+    <Text Include="usahowitzer.txt" />
+    <Text Include="usaplane.txt" />
+    <Text Include="usarobo.txt" />
+    <Text Include="usatank.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

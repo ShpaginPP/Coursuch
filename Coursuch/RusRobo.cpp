@@ -9,7 +9,7 @@ string RusRobo::setName()
 			cout << "Enter a Robo's name:" << endl;
 			string tmp;
 			cin >> tmp;
-			if (tmp.empty());
+			if (tmp.empty())
 			{
 				throw(string)"The name cant be empty";
 			}

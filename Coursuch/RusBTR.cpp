@@ -9,7 +9,7 @@ string RusBTR::setName()
 			cout << "Enter a BTR's name:" << endl;
 			string tmp;
 			cin >> tmp;
-			if (tmp.empty());
+			if (tmp.empty())
 			{
 				throw(string)"The name cant be empty";
 			}

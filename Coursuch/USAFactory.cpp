@@ -209,7 +209,7 @@ void UsaFactory::deleteTank()
 
 void UsaFactory::loadTank()
 {
-	ifstream fin("Usatank.txt");
+	ifstream fin("usatank.txt");
 	while (!fin.eof())
 	{
 		if (fin.peek() == -1)
@@ -240,7 +240,7 @@ void UsaFactory::loadTank()
 
 void UsaFactory::saveTank()
 {
-	ofstream fout("Usatank.txt");
+	ofstream fout("usatank.txt");
 	for (int i = 0; i < size_tu; i++)
 	{
 		for (int i = 0; i < size_tu; i++)
@@ -474,7 +474,7 @@ void UsaFactory::loadBTR()
 
 void UsaFactory::saveBTR()
 {
-	ofstream fout("Usabtr.txt");
+	ofstream fout("usabtr.txt");
 	for (int i = 0; i < size_bu; i++)
 	{
 		for (int i = 0; i < size_bu; i++)
@@ -692,7 +692,7 @@ void  UsaFactory::deleteRobo()
 
 void UsaFactory::loadRobo()
 {
-	ifstream fin("Usarobo.txt");
+	ifstream fin("usarobo.txt");
 	while (!fin.eof())
 	{
 		if (fin.peek() == -1)
@@ -723,7 +723,7 @@ void UsaFactory::loadRobo()
 
 void UsaFactory::saveRobo()
 {
-	ofstream fout("Usarobo.txt");
+	ofstream fout("usarobo.txt");
 	for (int i = 0; i < size_ru; i++)
 	{
 		for (int i = 0; i < size_ru; i++)
@@ -945,7 +945,7 @@ void UsaFactory::deleteHowitzer()
 
 void UsaFactory::loadHowitzer()
 {
-	ifstream fin("Usahowitzer.txt");
+	ifstream fin("usahowitzer.txt");
 	while (!fin.eof())
 	{
 		if (fin.peek() == -1)
@@ -976,7 +976,7 @@ void UsaFactory::loadHowitzer()
 
 void UsaFactory::saveHowitzer()
 {
-	ofstream fout("Usahowitzer.txt");
+	ofstream fout("usahowitzer.txt");
 	for (int i = 0; i < size_hu; i++)
 	{
 		for (int i = 0; i < size_hu; i++)
@@ -1198,7 +1198,7 @@ void UsaFactory::deletePlane()
 
 void UsaFactory::loadPlane()
 {
-	ifstream fin("Usaplane.txt");
+	ifstream fin("usaplane.txt");
 	while (!fin.eof())
 	{
 		if (fin.peek() == -1)
@@ -1229,7 +1229,7 @@ void UsaFactory::loadPlane()
 
 void UsaFactory::savePlane()
 {
-	ofstream fout("Usaplane.txt");
+	ofstream fout("usaplane.txt");
 	for (int i = 0; i < size_pu; i++)
 	{
 		for (int i = 0; i < size_pu; i++)

@@ -133,5 +133,32 @@
     <Text Include="rustank.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
+    <Text Include="rusbtr.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="rushowitzer.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="rusplane.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="rusrobo.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="usabtr.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="usahowitzer.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="usaplane.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="usarobo.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="usatank.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
   </ItemGroup>
 </Project>
