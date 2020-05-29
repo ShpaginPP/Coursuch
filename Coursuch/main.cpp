@@ -262,6 +262,7 @@ int main()
 				return 0;
 				;
 			}
+			break;
 		}
 		case 2:
 		{
@@ -504,6 +505,7 @@ int main()
 				return 0;
 				;
 			}
+			break;
 		}
 		case 3:
 		{
