@@ -34,7 +34,7 @@ int main()
 			cin >> choice_veh;
 			switch (choice_veh)
 			{
-			case 1://Tank
+			case 1:
 			{
 				cout << "What do you want to do with tanks?" << endl
 					<< "1).Create" << endl
@@ -78,7 +78,7 @@ int main()
 				}
 				break;
 			}
-			case 2://BTR
+			case 2:
 			{
 				cout << "What do you want to do with BTR?" << endl
 					<< "1).Create" << endl
@@ -122,7 +122,7 @@ int main()
 				}
 				break;
 			}
-			case 3://Robo
+			case 3:
 			{
 				cout << "What do you want to do with Robo?" << endl
 					<< "1).Create" << endl
@@ -166,7 +166,7 @@ int main()
 				}
 			break;
 			}
-			case 4://howitzers
+			case 4:
 			{
 				cout << "What do you want to do with Howitzer?" << endl
 					<< "1).Create" << endl
@@ -210,7 +210,7 @@ int main()
 				}
 			break;
 			}
-			case 5://Plane
+			case 5:
 			{
 				cout << "What do you want to do with Plane?" << endl
 					<< "1).Create" << endl
@@ -277,7 +277,7 @@ int main()
 			cin >> choice_veh;
 			switch (choice_veh)
 			{
-			case 1://Tank
+			case 1:
 			{
 				cout << "What do you want to do with tanks?" << endl
 					<< "1).Create" << endl
@@ -321,7 +321,7 @@ int main()
 				}
 				break;
 			}
-			case 2://BTR
+			case 2:
 			{
 				cout << "What do you want to do with BTR?" << endl
 					<< "1).Create" << endl
@@ -365,7 +365,7 @@ int main()
 				}
 				break;
 			}
-			case 3://Robo
+			case 3:
 			{
 				cout << "What do you want to do with Robo?" << endl
 					<< "1).Create" << endl
@@ -409,7 +409,7 @@ int main()
 				}
 				break;
 			}
-			case 4://howitzers
+			case 4:
 			{
 				cout << "What do you want to do with Howitzer?" << endl
 					<< "1).Create" << endl
@@ -453,7 +453,7 @@ int main()
 				}
 				break;
 			}
-			case 5://Plane
+			case 5:
 			{
 				cout << "What do you want to do with Plane?" << endl
 					<< "1).Create" << endl
