@@ -3,15 +3,15 @@
 class RusRobo : public Robo
 {
 public:
-	string name;         //название
-	string range;		 //расстояние
-	string power;		 //мощность
-	string weapon;		 //Тип вооружения
-	string caliber;		 //калибр вооружения
-	string area;		 //метод пеоедвижения
-	string year;		 //дата изготовления
-	string amount;		 //количество в ангаре
-	string weight;		 //вес
+	string name;        
+	string range;		
+	string power;		
+	string weapon;		
+	string caliber;		
+	string area;		
+	string year;		
+	string amount;		
+	string weight;		
 
 	string setName();
 	string setRange();

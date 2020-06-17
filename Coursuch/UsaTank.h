@@ -1,18 +1,19 @@
 #pragma once
-#include "Robo.h"
-class UsaRobo : public Robo
+#include "Tank.h"
+class UsaTank : public Tank
 {
 public:
-	string name;        
-	string range;		
-	string power;		
-	string weapon;		
-	string caliber;		
-	string area;		
-	string year;		
-	string amount;		
-	string weight;		
-
+	string name;         
+	string range;		 
+	string power;		 
+	string weapon;		 
+	string caliber;		 
+	string area;		 
+	string year;		 
+	string amount;		 
+	string weight;		 
+	string crew;		 
+	
 	string setName();
 	string setRange();
 	string setPower();
@@ -22,6 +23,7 @@ public:
 	string setYear();
 	string setAmount();
 	string setWeight();
+	string setCrew();
 	void print();
 	void save(ofstream& fout);
 	int load(ifstream& fin);
@@ -34,4 +36,5 @@ public:
 	string getYear();
 	string getAmount();
 	string getWeight();
+	string getCrew();
 };

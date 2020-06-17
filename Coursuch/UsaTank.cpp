@@ -1,12 +1,12 @@
-#include "UsaHowitzer.h"
+#include "UsaTank.h"
 
-string UsaHowitzer::setName()
+string UsaTank::setName()
 {
 	while (true)
 	{
 		try
 		{
-			cout << "Enter a howitzer's name:" << endl;
+			cout << "Enter a tank's name:" << endl;
 			string tmp;
 			cin >> tmp;
 			if (tmp.empty())
@@ -23,7 +23,7 @@ string UsaHowitzer::setName()
 	}
 }
 
-string UsaHowitzer::setPower()
+string UsaTank::setPower()
 {
 	while (true)
 	{
@@ -50,7 +50,7 @@ string UsaHowitzer::setPower()
 	}
 }
 
-string UsaHowitzer::setWeapon()
+string UsaTank::setWeapon()
 {
 	while (true)
 	{
@@ -71,7 +71,7 @@ string UsaHowitzer::setWeapon()
 	}
 }
 
-string UsaHowitzer::setRange()
+string UsaTank::setRange()
 {
 	while (true)
 	{
@@ -104,7 +104,7 @@ string UsaHowitzer::setRange()
 	}
 }
 
-string UsaHowitzer::setCaliber()
+string UsaTank::setCaliber()
 {
 	while (true)
 	{
@@ -131,14 +131,14 @@ string UsaHowitzer::setCaliber()
 	}
 }
 
-string UsaHowitzer::setArea()
+string UsaTank::setArea()
 {
 	while (true)
 	{
 		try
 		{
 			string tmp;
-			cout << "This is a howitzer, it can only move on the ground." << endl;
+			cout << "This is a tank, it can only move on the ground." << endl;
 			cin >> tmp;
 			if (tmp != "ground")
 				throw (string)"You can choose only \"ground\" as an movament area.";
@@ -152,7 +152,7 @@ string UsaHowitzer::setArea()
 	}
 }
 
-string UsaHowitzer::setYear()
+string UsaTank::setYear()
 {
 	while (true)
 	{
@@ -181,13 +181,13 @@ string UsaHowitzer::setYear()
 	}
 }
 
-string UsaHowitzer::setAmount()
+string UsaTank::setAmount()
 {
 	while (true)
 	{
 		try
 		{
-			cout << "Enter amount of this howitzers(until 10)." << endl;
+			cout << "Enter amount of this tanks(until 10)." << endl;
 			string tmp;
 			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
@@ -211,13 +211,13 @@ string UsaHowitzer::setAmount()
 	}
 }
 
-string UsaHowitzer::setWeight()
+string UsaTank::setWeight()
 {
 	while (true)
 	{
 		try
 		{
-			cout << "Enter a weight of your howitzer (from 45 tons to 70 tons)." << endl;
+			cout << "Enter a weight of your tank (from 45 tons to 70 tons)." << endl;
 			string tmp;
 			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
@@ -229,8 +229,8 @@ string UsaHowitzer::setWeight()
 				}
 			}
 			int test1 = stoi(tmp);
-			if ((test1 > 50) || (test1 < 30))
-				throw(string)"The a howitzer cannot weigh less than 30 tons and more than 50";
+			if ((test1 > 70) || (test1 < 45))
+				throw(string)"The a tank cannot weigh less than 45 tons and more than 70";
 			weight = tmp;
 			return weight;
 		}
@@ -241,14 +241,14 @@ string UsaHowitzer::setWeight()
 	}
 }
 
-string UsaHowitzer::setCrew()
+string UsaTank::setCrew()
 {
 	while (true)
 	{
 		try
 		{
 			string tmp;
-			cout << "Enter a number of people of your howitzer (from 2 to 3 man)." << endl;
+			cout << "Enter a number of people of your tank (from 2 to 5 man)." << endl;
 			cin >> tmp;
 			for (int i = 0; i < tmp.length(); i++)
 			{
@@ -259,7 +259,7 @@ string UsaHowitzer::setCrew()
 				}
 			}
 			int test = stoi(tmp);
-			if ((test > 3) || (test < 2))
+			if ((test > 5) || (test < 2))
 				throw(string)"The number of people is incorrect.";
 			crew = tmp;
 			return crew;
@@ -271,49 +271,49 @@ string UsaHowitzer::setCrew()
 	}
 }
 
-void UsaHowitzer::print()
+void UsaTank::print()
 {
-	cout << "Howitzer's name: " << this->name << endl
+	cout << "Tank's name: " << this->name << endl
 		<< "Range: " << this->range << endl
 		<< "Firepower: " << this->power << endl
 		<< "Weaponry: " << this->weapon << endl
 		<< "Caliber: " << this->caliber << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
-		<< "Amount of howitzers in hangar: " << this->amount << endl
+		<< "Amount of Tanks in hangar: " << this->amount << endl
 		<< "Weight: " << this->weight << endl
 		<< "Number of people in the crew: " << this->crew << endl
 		<< "====================================" << endl;
 }
 
-void UsaHowitzer::save(ofstream& fout)
+void UsaTank::save(ofstream& fout)
 {
-	fout << "Howitzer's name: " << this->name << endl
+	fout << "Tank's name: " << this->name << endl
 		<< "Range: " << this->range << endl
 		<< "Firepower: " << this->power << endl
 		<< "Weaponry: " << this->weapon << endl
 		<< "Caliber: " << this->caliber << endl
 		<< "Area of movement: " << this->area << endl
 		<< "Date of assembly: " << this->year << endl
-		<< "Amount of howitzers in hangar: " << this->amount << endl
+		<< "Amount of Tanks in hangar: " << this->amount << endl
 		<< "Weight: " << this->weight << endl
 		<< "Number of people in the crew: " << this->crew << endl
 		<< "====================================" << endl;
 	cout << "All data saved" << endl;
 }
 
-int UsaHowitzer::load(ifstream& fin)
+int UsaTank::load(ifstream& fin)
 {
 	try
 	{
 		string tmp;
 		string line;
-		tmp = "Howitzer's name: ";
+		tmp = "Tank's name: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the howitzer is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		name = line;
 		tmp = "Range: ";
@@ -321,7 +321,7 @@ int UsaHowitzer::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the howitzer is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -343,7 +343,7 @@ int UsaHowitzer::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the howitzer is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -359,7 +359,7 @@ int UsaHowitzer::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the howitzer is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		if (line != "Cannon" && line != "Howitzer")
 		{
@@ -371,7 +371,7 @@ int UsaHowitzer::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (weapon == "Howitzer" && line != "150")
 		{
-			throw (string)"For a Usasian howitzer you can choose only 150 mm.";
+			throw (string)"For a USA howitzer you can choose only 150 mm.";
 		}
 		else if (weapon == "Cannon" && line != "120")
 		{
@@ -383,7 +383,7 @@ int UsaHowitzer::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the howitzer is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		if (line != "ground")
 		{
@@ -395,7 +395,7 @@ int UsaHowitzer::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the howitzer is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		if (line.length() > 4)
 		{
@@ -410,12 +410,12 @@ int UsaHowitzer::load(ifstream& fin)
 			}
 		}
 		year = line;
-		tmp = "Amount of howitzers in hangar: ";
+		tmp = "Amount of Tanks in hangar: ";
 		getline(fin, line);
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the howitzer is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -436,7 +436,7 @@ int UsaHowitzer::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the howitzer is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -447,7 +447,7 @@ int UsaHowitzer::load(ifstream& fin)
 			}
 		}
 		int test1 = stoi(line);
-		if ((test1 > 50) || (test1 < 30))
+		if ((test1 > 70) || (test1 < 45))
 			throw(string)"The a data cannot weigh less than 45 tons and more than 70";
 		weight = line;
 		tmp = "Number of people in the crew: ";
@@ -455,7 +455,7 @@ int UsaHowitzer::load(ifstream& fin)
 		line.replace(line.find(tmp), tmp.length(), "");
 		if (line.empty())
 		{
-			throw(string)"The data of the howitzer is not in the file.";
+			throw(string)"The data of the tank is not in the file.";
 		}
 		for (int i = 0; i < line.length(); i++)
 		{
@@ -466,7 +466,7 @@ int UsaHowitzer::load(ifstream& fin)
 			}
 		}
 		test = stoi(line);
-		if ((test > 3) || (test < 2))
+		if ((test > 5) || (test < 2))
 			throw(string)"The number of people is incorrect.";
 		crew = line;
 		getline(fin, line);
@@ -478,52 +478,52 @@ int UsaHowitzer::load(ifstream& fin)
 	}
 }
 
-string UsaHowitzer::getName()
+string UsaTank::getName()
 {
 	return name;
 }
 
-string UsaHowitzer::getRange()
+string UsaTank::getRange()
 {
 	return range;
 }
 
-string UsaHowitzer::getPower()
+string UsaTank::getPower()
 {
 	return power;
 }
 
-string UsaHowitzer::getWeapon()
+string UsaTank::getWeapon()
 {
 	return weapon;
 }
 
-string UsaHowitzer::getCaliber()
+string UsaTank::getCaliber()
 {
 	return caliber;
 }
 
-string UsaHowitzer::getArea()
+string UsaTank::getArea()
 {
 	return area;
 }
 
-string UsaHowitzer::getYear()
+string UsaTank::getYear()
 {
 	return year;
 }
 
-string UsaHowitzer::getAmount()
+string UsaTank::getAmount()
 {
 	return amount;
 }
 
-string UsaHowitzer::getWeight()
+string UsaTank::getWeight()
 {
 	return weight;
 }
 
-string UsaHowitzer::getCrew()
+string UsaTank::getCrew()
 {
 	return crew;
 }

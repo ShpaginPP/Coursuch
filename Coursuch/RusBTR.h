@@ -3,12 +3,12 @@
 class RusBTR : public BTR
 {
 public:
-	string name;         //название
-	string area;		 //метод пеоедвижения
-	string year;		 //дата изготовления
-	string amount;		 //количество в ангаре
-	string weight;		 //вес
-	string crew;		 //число экипажа
+	string name;        
+	string area;		
+	string year;		
+	string amount;		
+	string weight;		
+	string crew;		
 
 	string setName();
 	string setArea();

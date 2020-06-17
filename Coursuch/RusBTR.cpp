@@ -297,7 +297,7 @@ int RusBTR::load(ifstream& fin)
 	catch (string error)
 	{
 		cout << "ERROR:" + error << endl;
-		return -1;//error signal.
+		return -1;
 	}
 }
 

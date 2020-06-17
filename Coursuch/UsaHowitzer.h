@@ -3,16 +3,16 @@
 class UsaHowitzer : public Howitzer
 {
 public:
-	string name;         //название
-	string range;		 //рассто€ние
-	string power;		 //мощность
-	string weapon;		 //“ип вооружени€
-	string caliber;		 //калибр вооружени€
-	string area;		 //метод пеоедвижени€
-	string year;		 //дата изготовлени€
-	string amount;		 //количество в ангаре
-	string weight;		 //вес
-	string crew;		 //число экипажа
+	string name;         
+	string range;		 
+	string power;		 
+	string weapon;		 
+	string caliber;		 
+	string area;		 
+	string year;		 
+	string amount;		 
+	string weight;		 
+	string crew;		 
 
 	string setName();
 	string setRange();
